@@ -1,0 +1,158 @@
+\usepackage[T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english, russian]{babel}
+\usepackage{graphicx}
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{subcaption}
+\usepackage{centernot}
+\usepackage{framed}
+\usepackage{titlesec}
+\usepackage{siunitx}
+
+\usepackage{caption}
+
+\usepackage[top=0.4in,bottom=0.8in,left=0.4in,right=0.4in,headheight=110pt]{geometry}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{indentfirst}
+\usepackage[unicode=true, colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\os}{\bar{\bar{o}}}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\phi}{\varphi}
+\newcommand{\dd}{\mathop{}\!d}
+
+\usepackage[inline]{enumitem}
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\newlist{options}{enumerate}{1}
+\newlist{options*}{enumerate*}{1}
+\setlist[options]{label=\asbuk*) }
+\setlist[options*]{label=\textbf{\asbuk*)} }
+
+\newlist{optionslatin}{enumerate}{1}
+\newlist{optionslatin*}{enumerate*}{1}
+\setlist[optionslatin]{label=\alph*) }
+\setlist[optionslatin*]{label=\textbf{\alph*)} }
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}
+\newtheorem*{solution}{Решение}
+\newtheorem*{consequence}{Следствие}
+\newtheorem*{consequence*}{Следствие}
+\newtheorem*{example}{Пример}
+\newtheorem*{example*}{Пример}
+\newtheorem*{statement}{Утверждение}
+\newtheorem*{lemma}{Лемма}
+\newtheorem*{lemma*}{Лемма}
+\newtheorem*{definition*}{Определение}
+\newtheorem*{proposal*}{Предложение}
+\newtheorem*{theorem*}{Теорема}
+\newtheorem{remark}{Замечание}
+\newtheorem*{remark*}{Замечание}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem{problem}{Задача}
+
+% Округление
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% расширенная матрица для СЛУ
+\newenvironment{amatrix}[2]{%
+\left(\begin{array}{@{}*{#1}{c}|*{#2}{c}@{}}
+}{%
+\end{array}\right)
+}
+
+\newcommand{\ar}[2]{\xrightarrow[\text{#2}]{\text{#1}}}
+
+% subsubsubsection
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% С++ code
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\small\ttfamily,
+    tabsize=4, % tab space width
+    showstringspaces=false, % don't mark spaces in strings
+    numbers=left, % display line numbers on the left
+    commentstyle=\color{green}, % comment color
+    morecomment=[l][\color{magenta}]{\#},
+    keywordstyle=\color{blue}, % keyword color
+    language=C++,
+    stringstyle=\color{red}\ttfamily,
+    breaklines=true
+}
+
+\usepackage{diagbox}
+\usepackage{tikz}
+\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,calc}
+
+
+\everymath{\displaystyle} % math everywhere
+
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+\usepackage{bbm}
+
+% Большие интегралы
+\usepackage{bigints}
+
+% \int = \int\limits
+\renewcommand{\int}{\intop}
+
+
+\newcommand{\ans}[1]{\textbf{Ответ}: #1.}
+
+% norm command
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\ord}[1]{\operatorname{ord}(#1)}
+\renewcommand{\gcd}{\text{НОД}}
+\newcommand{\lcm}{\text{НОК}}
+\renewcommand{\limsup}{\overline{\lim}}
+\renewcommand{\liminf}{\underline{\lim}}
+\newcommand{\verteq}{\rotatebox{90}{=}}
